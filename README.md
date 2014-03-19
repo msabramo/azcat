@@ -1,6 +1,7 @@
 azcat
 =====
 [![Build Status](https://drone.io/github.com/ntsy/azcat/status.png)](https://drone.io/github.com/ntsy/azcat/latest)
+
 `azcat` is a alternaive to `cat(1)`; specialized for printing. It prints files with syntax
 highlighting, formatting.
 
