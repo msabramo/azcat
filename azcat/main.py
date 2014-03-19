@@ -14,7 +14,7 @@ def main (filepath):
     except IOError as e:
         sys.exit("azcat: cannot open '%s': %s" % (f, str(e)))
     except UnicodeDecodeError:
-        sys.exit("azcar: file seems a binary file. Aborted.")
+        sys.exit("azcat: file seems a binary file. Aborted.")
 
     # confirm if file size is larger than 1MB
     if os.path.getsize(filepath) > 1024*1024:
