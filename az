@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+import os
+import sys
+import webbrowser
+from getpass import getuser
+
+import azcat
+
+def main ():
+    # one program, one easter egg
+    if getuser().upper() == "YUI" and os.getcwd() == "azunyan nyan nyan azunyan nyan nyan":
+        print("azcat: mou!")
+        webbrowser.open("http://www.pixiv.net/member_illust.php?mode=medium&illust_id=29734557")
+
+    try:
+        filepath = sys.argv[1]
+    except IndexError:
+        sys.exit("usage: azcat file")
+
+    azcat.main(filepath)
+
+if __name__ == "__main__":
+    main()
