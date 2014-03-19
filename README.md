@@ -3,7 +3,7 @@ azcat
 [![Build Status](https://drone.io/github.com/ntsy/azcat/status.png)](https://drone.io/github.com/ntsy/azcat/latest)
 
 `azcat` is a alternaive to `cat(1)`; specialized for printing. It prints files with syntax
-highlighting, formatting.
+highlighting and formatting.
 
 
 Installation
@@ -11,7 +11,7 @@ Installation
 ```
 $ pip install azcat
 ```
-As you can see, you should install Python 3.x and pip.
+As you can see, you should install Python and pip.
 
 Usage
 -----
