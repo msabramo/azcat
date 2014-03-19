@@ -11,7 +11,7 @@ Installation
 ```
 $ pip install azcat
 ```
-As you can see, you should install Python and pip.
+As you can see, you have to install Python and pip.
 
 Usage
 -----
