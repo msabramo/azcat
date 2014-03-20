@@ -11,14 +11,16 @@ Installation
 ```
 $ pip install azcat
 ```
-As you can see, you have to install Python and pip.
 
 Usage
 -----
 ```
 $ az file
 ```
-That's all. Note that azcat is interactive command so do not use it like `azcat foo|bar`.
+
+Warning
+-------
+`azcat` is an interactive command so do *NOT* use it like `azcat foo|bar`.
 
 License
 -------

@@ -1,9 +1,9 @@
 import os
 import sys
-import azcat.pretty_print
+from azcat.pretty_print import pretty_print
+from azcat.pager import pipe_to_pager
 
 def main (filepath):
-
     # abort if it is directory
     if os.path.isdir(filepath):
         sys.exit("azcat: '%s' is a directory. Aborted." % filepath)
@@ -21,4 +21,10 @@ def main (filepath):
         if input("file size is big; do you continue? [Y/n]: ") == "n":
             sys.exit("aborted.")
 
-    azcat.pretty_print.pretty_print(filepath, s)
+    pretty_s = pretty_print(filepath, s)
+
+    # if the number of lines is over 50, pipe to a pager
+    if pretty_s.count("\n") > 50:
+        pipe_to_pager(pretty_s)
+    else:
+        print(pretty_s)

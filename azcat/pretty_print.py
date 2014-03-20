@@ -45,4 +45,4 @@ def pretty_print (f, s):
     formatter = pygments.formatters.Terminal256Formatter()
     s = pygments.highlight(s, lexer, formatter)
 
-    print(s)
+    return s
