@@ -17,6 +17,9 @@ def main ():
     except IndexError:
         sys.exit("usage: azcat file")
 
+    if not os.path.exists(filepath):
+        sys.exit("azcat: no such a file: %s" % file)
+
     azcat.main(filepath)
 
 if __name__ == "__main__":
