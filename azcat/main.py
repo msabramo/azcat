@@ -3,6 +3,9 @@ import sys
 from azcat.pretty_print import pretty_print
 from azcat.pager import pipe_to_pager
 
+if sys.version[0] == "2":
+    from __builtin__ import raw_input as input
+
 def main (filepath):
     # abort if it is directory
     if os.path.isdir(filepath):
