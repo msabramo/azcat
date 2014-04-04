@@ -19,6 +19,9 @@ def main (filepath):
     except UnicodeDecodeError:
         sys.exit("azcat: file seems a binary file. Aborted.")
 
+    if s.find("\x00") != -1:
+        sys.exit("azcat: file seems a binary file. Aborted.")
+
     # confirm if file size is larger than 1MB
     if os.path.getsize(filepath) > 1024*1024:
         if input("file size is big; do you continue? [Y/n]: ") == "n":
