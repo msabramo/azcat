@@ -5,9 +5,9 @@ with open("README.md") as f:
 
 setup(
     name="azcat",
-    version="0.10",
+    version="0.11",
     description="A alternative to cat(1); specialized for printing files",
-    load_description=long_description,
+    long_description=long_description,
     author="Seiya Nuta",
     author_email="nuta@seiya.me",
     url="http://github.com/ntsy/azcat",
@@ -15,7 +15,7 @@ setup(
     scripts=["az"],
     install_requires=["pygments"],
     packages=find_packages(),
-    classfiers = [
+    classifiers = [
         "Development Status :: 4 - Beta",
         "Environment :: Console",
         "License :: Public Domain",
