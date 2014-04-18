@@ -18,7 +18,7 @@ def main ():
         sys.exit("usage: azcat file")
 
     if not os.path.exists(filepath):
-        sys.exit("azcat: no such a file: %s" % file)
+        sys.exit("azcat: no such a file: %s" % filepath)
 
     azcat.main(filepath)
 
