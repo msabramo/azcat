@@ -26,6 +26,11 @@ License
 -------
 `azcat` is a public domain software.
 
+Contributors
+------------
+- [Seiya Nuta](https://github.com/ntsy) Author
+- [Alessandro Pisa](https://github.com/ale-rt) [PR #3](https://github.com/ntsy/azcat/pull/3)
+
 Contributing
 ------------
 Please send a Pull Request on GitHub. I will be very happy whatever the PR does :)
