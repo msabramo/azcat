@@ -31,8 +31,7 @@ def main (filepath):
     if s.count("\n") > 50:
         p = Popen(["less", "-R", "-"], stdin=PIPE)
         try:
-            out = p.stdin
-            pretty_print(filepath, out)
+            pretty_print(filepath, p.stdin)
             p.stdin = sys.stdin
             p.wait()
         except IOError: # this will raised after the pager existed
