@@ -28,8 +28,8 @@ License
 
 Contributors
 ------------
-- [Seiya Nuta](https://github.com/ntsy) Author
-- [Alessandro Pisa](https://github.com/ale-rt) [PR #3](https://github.com/ntsy/azcat/pull/3)
+- [Seiya Nuta](https://github.com/ntsy): Author
+- [Alessandro Pisa](https://github.com/ale-rt): [PR #3](https://github.com/ntsy/azcat/pull/3)
 
 Contributing
 ------------
