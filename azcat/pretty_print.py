@@ -12,6 +12,9 @@ def _interpreter2ext (interpreter):
                      "ruby":   "rb",
                      "perl":   "pl",
                      "php":    "php",
+                     "bash":   "sh",
+                     "zsh":    "sh",
+                     "sh":     "sh",
                    }
 
     for k,v in interpreters.items():
