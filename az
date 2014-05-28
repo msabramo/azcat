@@ -15,7 +15,7 @@ def main ():
     try:
         filepath = sys.argv[1]
     except IndexError:
-        sys.exit("usage: azcat file")
+        filepath = "/dev/stdin"
 
     if not os.path.exists(filepath):
         sys.exit("azcat: no such a file: %s" % filepath)

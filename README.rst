@@ -23,15 +23,6 @@ Usage
     $ az file
 
 =======
-Warning
-=======
-azcat is an interactive command so do *NOT* use it like:
-
-.. code-block:: bash
-
-    $ azcat foo|bar # don't use like this!
-
-=======
 License
 =======
 azcat is a public domain software.

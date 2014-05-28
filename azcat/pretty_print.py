@@ -20,17 +20,14 @@ def _interpreter2ext (interpreter):
     return ""
 
 
-def pretty_print (src, out):
+def pretty_print (src, s, out):
     """ `src' is a filepath to be formatted. `out' is a file object
         to be written. """
     f = os.path.basename(src)
     ext = os.path.splitext(src)[1]
 
-    if ext != "json":
-        s = open(src).read()
-
     if ext == "json":
-        s = json.dumps(json.load(open(src)), indent=2)
+        s = json.dumps(json.loads(s), indent=2)
     elif ext == "":
         # is executable script?
         if os.access(f, os.X_OK) and s.startswith("#!"):
