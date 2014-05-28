@@ -29,8 +29,8 @@ def pretty_print (src, s, out):
     if ext == "json":
         s = json.dumps(json.loads(s), indent=2)
     elif ext == "":
-        # is executable script?
-        if os.access(f, os.X_OK) and s.startswith("#!"):
+        # is a script?
+        if s.startswith("#!"):
             # this is a script without extention. read shebang
             shebang = s.split("\n", 1)[0]
             try:
