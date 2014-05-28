@@ -20,7 +20,8 @@ Usage
 =====
 .. code-block:: bash
 
-    $ az file
+    $ az hello_world.py
+    $ curl -L seiya.me/arch-setup | az
 
 =======
 License
