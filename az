@@ -6,6 +6,18 @@ from getpass import getuser
 
 import azcat
 
+HELP = """\
+azcat - A alternative to cat(1); specialized for printing files
+usage: az file
+
+options:
+  --help  print this message
+
+examples:
+  $ az hello.py
+  $ curl -L seiya.me/arch-setup | az
+"""
+
 def main ():
     # one program, one easter egg
     if getuser().upper() == "YUI" and os.getcwd() == "azunyan nyan nyan azunyan nyan nyan":
@@ -13,6 +25,9 @@ def main ():
         webbrowser.open("http://www.pixiv.net/member_illust.php?mode=medium&illust_id=29734557")
 
     try:
+        if sys.argv[1] == "--help":
+            print(HELP)
+            sys.exit()
         filepath = sys.argv[1]
     except IndexError:
         filepath = "/dev/stdin"
