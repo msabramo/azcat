@@ -1,3 +1,7 @@
+v0.30:
+  - azcat is now a pager! It can be used just like less(1).
+  - add --help option
+
 v0.21:
   - consider as a binary file if the file includes 0x1b
 

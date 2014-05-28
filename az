@@ -16,6 +16,9 @@ options:
 examples:
   $ az hello.py
   $ curl -L seiya.me/arch-setup | az
+
+version:
+  3.0
 """
 
 def main ():
