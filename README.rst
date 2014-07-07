@@ -5,6 +5,9 @@ azcat
 .. image:: https://drone.io/github.com/ntsy/azcat/status.png
     :alt: Build Status
 
+.. image:: https://badge.fury.io/py/azcat.svg
+    :target: http://badge.fury.io/py/azcat
+
 azcat is a alternaive to ``cat(1)``; specialized for printing. It prints files with syntax
 highlighting and formatting.
 
