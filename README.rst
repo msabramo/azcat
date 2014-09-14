@@ -23,8 +23,9 @@ Usage
 =====
 .. code-block:: bash
 
-    $ az hello_world.py
-    $ curl -L seiya.me/arch-setup | az
+    $ az /usr/local/bin/az
+    $ az README.md
+    $ curl example.com/api/foo.json | az
 
 =======
 License
