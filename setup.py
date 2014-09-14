@@ -11,7 +11,7 @@ setup(
     author="Seiya Nuta",
     author_email="nuta@seiya.me",
     url="http://github.com/ntsy/azcat",
-    packages=["azcat"],
+    packages=find_packages(),
     scripts=["az"],
     install_requires=["pygments", "colorama", "BeautifulSoup4", "prettytable"],
     classifiers = [
