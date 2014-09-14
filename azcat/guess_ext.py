@@ -7,7 +7,7 @@ def guess_ext_by_filename (filename):
 
     ext = os.path.splitext(filename)[1].lstrip(".")
     if ext == "":
-        for k,v in FILES.items():
+        for k,v in FILENAMES.items():
             if filename.startswith(k):
                 return v
         return ""
