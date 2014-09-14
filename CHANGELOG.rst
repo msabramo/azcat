@@ -1,3 +1,6 @@
+v0.41:
+  - some fixes
+
 v0.40:
   - add formatters and highlighters
   - some enhancements
