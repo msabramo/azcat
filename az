@@ -4,21 +4,24 @@ import sys
 import webbrowser
 from getpass import getuser
 
+# for debugging
+sys.path.insert(0, os.getcwd())
+
 import azcat
 
 HELP = """\
-azcat - A alternative to cat(1); specialized for printing files
-usage: az file
+Usage: az file
+A alternative to cat(1); specialized for printing files.
 
-options:
+Options:
   --help  print this message
 
-examples:
+Examples:
   $ az hello.py
-  $ curl -L seiya.me/arch-setup | az
+  $ curl -L http://httpbin.org/headers | az
 
-version:
-  3.0
+Version:
+  0.21
 """
 
 def main ():
