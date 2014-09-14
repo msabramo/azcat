@@ -5,11 +5,14 @@ import argparse
 from getpass import getuser
 import webbrowser
 
+DEBUG = True
+VERSION = "dev"
+
 # for debugging
-sys.path.insert(0, os.getcwd())
+if DEBUG:
+    sys.path.insert(0, os.getcwd())
 
 import azcat
-
 
 def main ():
     # one program, one easter egg
@@ -20,6 +23,7 @@ def main ():
     parser = argparse.ArgumentParser(description="A alternative to cat(1); specialized for printing files")
     parser.add_argument("file", default="/dev/stdin", nargs="?")
     parser.add_argument("--with-formatter", default=True)
+    parser.add_argument('--version', action='version', version=VERSION)
     args = vars(parser.parse_args())
 
     azcat.main(args)

@@ -5,7 +5,7 @@ with open("README.rst") as f:
 
 setup(
     name="azcat",
-    version="0.30",
+    version="dev",
     description="A alternative to cat(1); specialized for printing files",
     long_description=long_description,
     author="Seiya Nuta",
