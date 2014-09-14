@@ -25,11 +25,9 @@ def pretty_print (src, s, out, with_formatter):
     """ `src' is a filepath to be formatted. `out' is a file object
         to be written."""
 
-    if src == "":
-        # file contents from stdin or executable files
+    ext = guess_ext_by_filename(src)
+    if ext == "":
         ext = guess_ext_by_contents(s)
-    else:
-        ext = guess_ext_by_filename(src)
 
     # format
     if with_formatter:
