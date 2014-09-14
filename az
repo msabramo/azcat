@@ -5,12 +5,10 @@ import argparse
 from getpass import getuser
 import webbrowser
 
-DEBUG = False
 VERSION = "0.40"
 
 # for debugging
-if DEBUG:
-    sys.path.insert(0, os.getcwd())
+sys.path.insert(0, os.getcwd())
 
 import azcat
 
