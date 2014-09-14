@@ -11,6 +11,8 @@ azcat
 azcat is a alternaive to ``cat(1)``; specialized for printing. It prints files with syntax
 highlighting and formatting.
 
+.. image:: https://raw.githubusercontent.com/nuta/azcat/master/demo.gif
+
 ============
 Installation
 ============
