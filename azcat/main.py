@@ -6,10 +6,8 @@ from azcat.pretty_print import pretty_print
 if sys.version[0] == "2":
     from __builtin__ import raw_input as input
 
-def main (filepath):
-    # abort if it is directory
-    if os.path.isdir(filepath):
-        sys.exit("azcat: '%s' is a directory. Aborted." % filepath)
+def main (args):
+    filepath = args["file"]
 
     try:
         with open(filepath, "r") as f:
@@ -31,11 +29,11 @@ def main (filepath):
     if s.count("\n") > 50:
         p = Popen(["less", "-R", "-"], stdin=PIPE)
         try:
-            pretty_print(filepath, s, p.stdin)
+            pretty_print(filepath, s, p.stdin, args["with_formatter"])
             p.stdin = sys.stdin
             p.wait()
         except IOError: # this will raised after the pager existed
             pass
     else:
         out = sys.stdout.buffer
-        pretty_print(filepath, s, out)
+        pretty_print(filepath, s, out, args["with_formatter"])

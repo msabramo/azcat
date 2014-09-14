@@ -1,28 +1,15 @@
 #!/usr/bin/env python3
 import os
 import sys
-import webbrowser
+import argparse
 from getpass import getuser
+import webbrowser
 
 # for debugging
 sys.path.insert(0, os.getcwd())
 
 import azcat
 
-HELP = """\
-Usage: az file
-A alternative to cat(1); specialized for printing files.
-
-Options:
-  --help  print this message
-
-Examples:
-  $ az hello.py
-  $ curl -L http://httpbin.org/headers | az
-
-Version:
-  0.21
-"""
 
 def main ():
     # one program, one easter egg
@@ -30,18 +17,12 @@ def main ():
         print("azcat: mou!")
         webbrowser.open("http://www.pixiv.net/member_illust.php?mode=medium&illust_id=29734557")
 
-    try:
-        if sys.argv[1] == "--help":
-            print(HELP)
-            sys.exit()
-        filepath = sys.argv[1]
-    except IndexError:
-        filepath = "/dev/stdin"
+    parser = argparse.ArgumentParser(description="A alternative to cat(1); specialized for printing files")
+    parser.add_argument("file", default="/dev/stdin", nargs="?")
+    parser.add_argument("--with-formatter", default=True)
+    args = vars(parser.parse_args())
 
-    if not os.path.exists(filepath):
-        sys.exit("azcat: no such a file: %s" % filepath)
-
-    azcat.main(filepath)
+    azcat.main(args)
 
 if __name__ == "__main__":
     try:
