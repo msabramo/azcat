@@ -7,8 +7,18 @@ import pygments.formatters
 
 from azcat.guess_ext import guess_ext_by_contents, guess_ext_by_filename
 
-def load_formatter (name):
-    return getattr(getattr(__import__("azcat.formatters." + name), "formatters"), name)
+def load_module (type_, name):
+    try:
+        m = getattr(getattr(__import__("azcat.{0}.{1}".format(type_, name)), type_), name)
+    except ImportError:
+        return None
+    return m
+
+def _load_formatter (name):
+    return load_module("formatters", name)
+
+def _load_highlighter (name):
+    return load_module("highlighters", name)
 
 
 def pretty_print (src, s, out, with_formatter):
@@ -23,17 +33,19 @@ def pretty_print (src, s, out, with_formatter):
 
     # format
     if with_formatter:
-        try:
-            f = load_formatter(ext)
-        except ImportError:
-            pass
-        else:
+        f = _load_formatter(ext)
+        if f is not None:
             ext,s = f.format(s)
 
-    # colorful!
-    try:
-      lexer = pygments.lexers.get_lexer_by_name(ext)
-    except pygments.util.ClassNotFound:
-      lexer = pygments.lexers.get_lexer_for_mimetype("text/plain")
-    fmt = pygments.formatters.Terminal256Formatter(encoding="utf-8")
-    pygments.highlight(s, lexer, fmt, out)
+    # highlight
+    h = _load_highlighter(ext)
+    if h is None:
+        try:
+            lexer = pygments.lexers.get_lexer_by_name(ext)
+        except pygments.util.ClassNotFound:
+            lexer = pygments.lexers.get_lexer_for_mimetype("text/plain")
+        fmt = pygments.formatters.Terminal256Formatter(encoding="utf-8")
+        pygments.highlight(s, lexer, fmt, out)
+    else:
+        h.highlight(out, s)
+        out.close()
