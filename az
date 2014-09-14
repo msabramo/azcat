@@ -5,8 +5,8 @@ import argparse
 from getpass import getuser
 import webbrowser
 
-DEBUG = True
-VERSION = "dev"
+DEBUG = False
+VERSION = "0.40"
 
 # for debugging
 if DEBUG:

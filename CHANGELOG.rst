@@ -1,3 +1,7 @@
+v0.40:
+  - add formatters and highlighters
+  - some enhancements
+
 v0.30:
   - azcat is now a pager! It can be used just like less(1).
   - add --help option
