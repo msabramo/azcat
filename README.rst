@@ -2,7 +2,7 @@
 azcat
 ******
 
-.. image:: https://drone.io/github.com/ntsy/azcat/status.png
+.. image:: https://drone.io/github.com/nuta/azcat/status.png
     :alt: Build Status
 
 .. image:: https://badge.fury.io/py/azcat.svg
@@ -34,8 +34,8 @@ azcat is a public domain software.
 ============
 Contributors
 ============
-- `Seiya Nuta <https://github.com/ntsy>`_: Author
-- `Alessandro Pisa <https://github.com/ale-rt>`_: PR `#3 <https://github.com/ntsy/azcat/pull/3>`_
+- `Seiya Nuta <https://github.com/nuta>`_: Author
+- `Alessandro Pisa <https://github.com/ale-rt>`_: PR `#3 <https://github.com/nuta/azcat/pull/3>`_
 
 ============
 Contributing
