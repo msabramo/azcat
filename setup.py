@@ -13,7 +13,7 @@ setup(
     url="http://github.com/ntsy/azcat",
     packages=["azcat"],
     scripts=["az"],
-    install_requires=["pygments"],
+    install_requires=["pygments", "colorama", "bs4", "prettytable"],
     classifiers = [
         "Development Status :: 4 - Beta",
         "Environment :: Console",
