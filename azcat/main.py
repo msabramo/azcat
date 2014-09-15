@@ -11,7 +11,7 @@ def load_file (filepath):
         with open(filepath, "r") as f:
             s = f.read()
     except IOError as e:
-        sys.exit("azcat: cannot open '%s': %s" % (f, str(e)))
+        sys.exit("azcat: cannot open '%s': %s" % (filepath, str(e)))
     except UnicodeDecodeError:
         sys.exit("azcat: file seems a binary file.")
 
