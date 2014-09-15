@@ -13,7 +13,8 @@ setup(
     url="http://github.com/ntsy/azcat",
     packages=find_packages(),
     scripts=["az"],
-    install_requires=["pygments", "colorama", "BeautifulSoup4", "prettytable"],
+    install_requires=["pygments", "colorama", "BeautifulSoup4", "prettytable",
+                      "python-magic"],
     classifiers = [
         "Development Status :: 4 - Beta",
         "Environment :: Console",

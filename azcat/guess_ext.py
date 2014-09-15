@@ -1,4 +1,6 @@
 import os
+import mimetypes
+import magic
 
 def guess_ext_by_filename (filename):
     FILENAMES = {
@@ -26,16 +28,22 @@ def guess_ext_by_contents (s):
                      "sh":     "sh",
                    }
 
-    if not s.startswith("#!"):
-        return ""
+    # guess by shebang
+    if s.startswith("#!"):
+        shebang = s.split("\n", 1)[0]
+        try:
+            interpreter = shebang.split("env ")[1] #!/usr/bin/env python
+        except IndexError:
+            interpreter = os.path.basename(shebang[2:]) #!/usr/bin/python
 
-    shebang = s.split("\n", 1)[0]
-    try:
-        interpreter = shebang.split("env ")[1]
-    except IndexError:
-        interpreter = os.path.basename(shebang[2:])
+        for k,v in INTERPRETERS.items():
+            if interpreter.startswith(k):
+                return v
 
-    for k,v in INTERPRETERS.items():
-        if interpreter.startswith(k):
-            return v
+    # guess by libmagic
+    else:
+        mime = str(magic.from_buffer(bytes(s, "utf-8"), mime=True), "utf-8")
+        ext  = mimetypes.guess_extension(mime).rstrip(".")
+        return ext
+
     return ""
