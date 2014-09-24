@@ -1,3 +1,7 @@
+v0.42:
+  - guess file type by libmagic
+  - some fixes
+
 v0.41:
   - some fixes
 
