@@ -5,7 +5,7 @@ import argparse
 from getpass import getuser
 import webbrowser
 
-VERSION = "0.41"
+VERSION = "0.45"
 
 # for debugging
 sys.path.insert(0, os.getcwd())

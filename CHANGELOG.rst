@@ -1,3 +1,6 @@
+v0.45:
+  - fix version
+
 v0.43:
   - add ``help=`` in argparse
 
