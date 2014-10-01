@@ -18,7 +18,7 @@ Installation
 ============
 .. code-block:: bash
 
-    $ pip install azcat
+    $ pip3 install azcat # use Python3
 
 =====
 Usage
