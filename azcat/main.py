@@ -1,6 +1,6 @@
 import os
 import sys
-from subprocess import Popen, PIPE
+from subprocess import Popen, PIPE, check_output
 from azcat.pretty_print import pretty_print
 
 if sys.version_info[0] == 2:
@@ -28,8 +28,14 @@ def load_file (filepath):
 def main (args):
     s = load_file(args["file"])
 
-    # if the number of lines is over 50, pipe to a pager
-    if s.count("\n") > 50:
+    # get the height of a terminal
+    try:
+        height = int(check_output(["stty", "size"]).decode("utf-8").split()[0])
+    except:
+        height = 50 # failed to get the height so use 50 instead
+
+    # if the number of lines is larger than height of the terminal, pipe to a pager
+    if s.count("\n") > height:
         p = Popen(["less", "-R", "-"], stdin=PIPE)
         try:
             pretty_print(args["file"], s, p.stdin, args["with_formatter"])
