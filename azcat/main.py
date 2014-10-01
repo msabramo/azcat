@@ -3,7 +3,7 @@ import sys
 from subprocess import Popen, PIPE
 from azcat.pretty_print import pretty_print
 
-if sys.version[0] == "2":
+if sys.version_info[0] == 2:
     from __builtin__ import raw_input as input
 
 def load_file (filepath):
