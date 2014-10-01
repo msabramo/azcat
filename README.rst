@@ -27,6 +27,7 @@ Usage
 
     $ az /usr/local/bin/az
     $ az README.md
+    $ az --with-formatter timetable.csv | az # pretty printing
     $ curl example.com/api/foo.json | az
 
 =======
