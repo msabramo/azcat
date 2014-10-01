@@ -41,6 +41,7 @@ Contributors
 ============
 - `Seiya Nuta <https://github.com/nuta>`_: Author
 - `Alessandro Pisa <https://github.com/ale-rt>`_: PR `#3 <https://github.com/nuta/azcat/pull/3>`_
+- `Simeon Visser <https://github.com/svisser>`_: PR `#7 <https://github.com/nuta/azcat/pull/7>`_
 
 ============
 Contributing
