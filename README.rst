@@ -25,6 +25,7 @@ Usage
 =====
 .. code-block:: bash
 
+    $ az --help # manual
     $ az /usr/local/bin/az
     $ az README.md
     $ az --with-formatter timetable.csv | az # pretty printing
