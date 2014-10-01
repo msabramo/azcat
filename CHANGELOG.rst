@@ -1,3 +1,6 @@
+v0.43:
+  - add ``help=`` in argparse
+
 v0.42:
   - guess file type by libmagic
   - some fixes
