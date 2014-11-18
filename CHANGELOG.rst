@@ -1,3 +1,6 @@
+v.050:
+  - integrate with GNU global
+
 v0.45:
   - fix version
 

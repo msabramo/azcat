@@ -28,6 +28,7 @@ Usage
     $ az --help # manual
     $ az /usr/local/bin/az
     $ az README.md
+    $ az -t main # source code reading with GNU global(1)
     $ az --with-formatter timetable.csv | az # pretty printing
     $ curl example.com/api/foo.json | az
 
