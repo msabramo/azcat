@@ -1,6 +1,6 @@
 import os
 import sys
-from subprocess import Popen, PIPE, check_output
+from subprocess import Popen, PIPE, check_output, STDOUT
 from azcat.pretty_print import pretty_print
 
 if sys.version_info[0] == 2:
@@ -26,7 +26,22 @@ def load_file (filepath):
 
 
 def main (args):
-    s = load_file(args["file"])
+    # GNU global
+    if args["t"] is not None:
+        try:
+            output = check_output(["global", "-x", args["t"]]).decode("utf-8")
+            if output == "":
+                sys.exit("azcat: symbol ``{0}'' not found".format(args["t"]))
+            line, file = list(filter(lambda x: x != "", output.split(" ")))[1:3]
+            line = int(line)
+        except Exception as e:
+            sys.exit("azcat: error occurred in global(1)")
+    # normal
+    else:
+        file = args["file"]
+        line = 1
+
+    s = load_file(file)
 
     # get the height of a terminal
     try:
@@ -36,13 +51,13 @@ def main (args):
 
     # if the number of lines is larger than height of the terminal, pipe to a pager
     if s.count("\n") > height:
-        p = Popen(["less", "-R", "-"], stdin=PIPE)
+        p = Popen(["less", "-R", "+{0}g".format(line)], stdin=PIPE)
         try:
-            pretty_print(args["file"], s, p.stdin, args["with_formatter"])
+            pretty_print(file, s, p.stdin, args["with_formatter"])
             p.stdin = sys.stdin
             p.wait()
         except IOError: # this will raised after the pager existed
             pass
     else:
         out = sys.stdout.buffer
-        pretty_print(args["file"], s, out, args["with_formatter"])
+        pretty_print(file, s, out, args["with_formatter"])
