@@ -53,11 +53,11 @@ def main (args):
     if s.count("\n") > height:
         p = Popen(["less", "-R", "+{0}g".format(line)], stdin=PIPE)
         try:
-            pretty_print(file, s, p.stdin, args["with_formatter"])
+            pretty_print(file, s, p.stdin, args["with_formatter"], ext=args.get("f"))
             p.stdin = sys.stdin
             p.wait()
         except IOError: # this will raised after the pager existed
             pass
     else:
         out = sys.stdout.buffer
-        pretty_print(file, s, out, args["with_formatter"])
+        pretty_print(file, s, out, args["with_formatter"], ext=args.get("f"))

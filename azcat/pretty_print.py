@@ -21,13 +21,14 @@ def _load_highlighter (name):
     return load_module("highlighters", name)
 
 
-def pretty_print (src, s, out, with_formatter):
+def pretty_print (src, s, out, with_formatter, ext=None):
     """ `src' is a filepath to be formatted. `out' is a file object
         to be written."""
 
-    ext = guess_ext_by_filename(src)
-    if ext == "":
-        ext = guess_ext_by_contents(s)
+    if ext is None:
+        ext = guess_ext_by_filename(src)
+        if ext == "":
+            ext = guess_ext_by_contents(s)
 
     # format
     if with_formatter:
