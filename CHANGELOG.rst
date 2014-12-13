@@ -1,4 +1,7 @@
-v.050:
+v0.60:
+  - add -f option
+
+v0.50:
   - integrate with GNU global
 
 v0.45:
