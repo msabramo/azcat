@@ -45,7 +45,7 @@ def main (args):
 
     # get the height of a terminal
     try:
-        height = int(check_output(["stty", "size"]).decode("utf-8").split()[0])
+        height = int(check_output(["stty", "size"], stderr="/dev/stderr").decode("utf-8").split()[0])
     except:
         height = 50 # failed to get the height so use 50 instead
 
