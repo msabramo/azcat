@@ -19,6 +19,7 @@ Installation
 .. code-block:: bash
 
     $ pip3 install azcat # use Python3
+    $ brew install libmagic # on OS X
 
 =====
 Usage
@@ -30,7 +31,7 @@ Usage
     $ az README.md
     $ az -t main # source code reading with GNU global(1)
     $ az --with-formatter timetable.csv | az # pretty printing
-    $ curl example.com/api/foo.json | az
+    $ curl example.com/api/foo.json | az -f json
 
 =======
 License
