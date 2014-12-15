@@ -14,7 +14,7 @@ setup(
     packages=find_packages(),
     scripts=["az"],
     install_requires=["pygments", "colorama", "BeautifulSoup4", "prettytable",
-                      "python-magic"],
+                      "python-magic", "chardet"],
     classifiers = [
         "Development Status :: 4 - Beta",
         "Environment :: Console",

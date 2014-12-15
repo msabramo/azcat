@@ -1,5 +1,6 @@
 import os
 import sys
+import chardet
 from subprocess import Popen, PIPE, check_output, STDOUT
 from azcat.pretty_print import pretty_print
 
@@ -8,8 +9,10 @@ if sys.version_info[0] == 2:
 
 def load_file (filepath):
     try:
-        with open(filepath, "r") as f:
-            s = f.read()
+       # detect & convert character encoding
+        with open(filepath, "rb") as f:
+            data = f.read()
+        s = data.decode(chardet.detect(data)["encoding"])
     except IOError as e:
         sys.exit("azcat: cannot open '%s': %s" % (filepath, str(e)))
     except UnicodeDecodeError:
