@@ -46,18 +46,8 @@ def main (args):
 
     s = load_file(file)
 
-    # get the height of a terminal
-    try:
-        height = int(check_output(["stty", "size"], stderr="/dev/stderr").decode("utf-8").split()[0])
-    except:
-        height = 50 # failed to get the height so use 50 instead
-
-    # if the number of lines is larger than height of the terminal, pipe to a pager
-    if s.count("\n") > height:
-        if args["with_pager"]:
-          p = Popen(["less", "-R", "+{0}g".format(line)], stdin=PIPE)
-        else:
-          p = Popen(["cat"], stdin=PIPE)
+    if args["with_pager"]:
+        p = Popen(["less", "-R", "+{0}g".format(line)], stdin=PIPE)
         try:
             pretty_print(file, s, p.stdin, args["with_formatter"], ext=args.get("f"))
             p.stdin = sys.stdin
