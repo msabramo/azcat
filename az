@@ -22,6 +22,7 @@ def main ():
     parser.add_argument("file", default="/dev/stdin", nargs="?", help="if it is absent, azcat reads from the stdin")
     parser.add_argument("-f", help="specify the file extension")
     parser.add_argument("-t", help="use of tags files (GNU GLOBAL)")
+    parser.add_argument("--with-pager", action="store_true", help="enable pager")
     parser.add_argument("--with-formatter", action="store_true", help="enable pretty printing")
     parser.add_argument('--version', action='version', version=VERSION)
     args = vars(parser.parse_args())

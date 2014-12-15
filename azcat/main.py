@@ -54,7 +54,10 @@ def main (args):
 
     # if the number of lines is larger than height of the terminal, pipe to a pager
     if s.count("\n") > height:
-        p = Popen(["less", "-R", "+{0}g".format(line)], stdin=PIPE)
+        if args["with_pager"]:
+          p = Popen(["less", "-R", "+{0}g".format(line)], stdin=PIPE)
+        else:
+          p = Popen(["cat"], stdin=PIPE)
         try:
             pretty_print(file, s, p.stdin, args["with_formatter"], ext=args.get("f"))
             p.stdin = sys.stdin
