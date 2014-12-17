@@ -12,14 +12,20 @@ def load_file (filepath):
        # detect & convert character encoding
         with open(filepath, "rb") as f:
             data = f.read()
-        s = data.decode(chardet.detect(data)["encoding"])
+
+        # is it seem a binary file?
+        if b"\x00" in data[0:1024]:
+             s = data
+        else:
+             en = chardet.detect(data[0:1024])["encoding"]
+             if en is None:
+                 s = data # failed to detect encoding; treat as a binary
+             else:
+                 s = data.decode(chardet.detect(data[0:1024])["encoding"])
     except IOError as e:
         sys.exit("azcat: cannot open '%s': %s" % (filepath, str(e)))
     except UnicodeDecodeError:
-        sys.exit("azcat: file seems a binary file.")
-
-    if s.find("\x00") != -1 or s.find("\x1b") != -1:
-        sys.exit("azcat: file seems a binary file.")
+        s = data
 
     # confirm if file size is larger than 1MB
     if os.path.getsize(filepath) > 1024*1024:

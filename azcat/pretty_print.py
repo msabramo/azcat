@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 
 import pygments
@@ -31,10 +32,18 @@ def pretty_print (src, s, out, with_formatter, ext=None):
             ext = guess_ext_by_contents(s)
 
     # format
-    if with_formatter:
+    if with_formatter or isinstance(s, bytes):
         f = _load_formatter(ext)
         if f is not None:
-            ext,s = f.format(s)
+            if isinstance(s, bytes):
+                if not "format_bytes" in dir(f):
+                     sys.exit("azcat: unsupported file type")
+                ext,s = f.format_bytes(s)
+            else:
+                ext,s = f.format(s)
+
+    if isinstance(s, bytes):
+        sys.exit("azcat: unsupported file type")
 
     # highlight
     h = _load_highlighter(ext)
