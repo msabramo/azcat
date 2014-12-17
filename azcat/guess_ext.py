@@ -29,7 +29,7 @@ def guess_ext_by_contents (s):
                    }
 
     # guess by shebang
-    if s.startswith("#!"):
+    if isinstance(s, str) and s.startswith("#!"):
         shebang = s.split("\n", 1)[0]
         try:
             interpreter = shebang.split("env ")[1] #!/usr/bin/env python
@@ -41,8 +41,8 @@ def guess_ext_by_contents (s):
                 return v
 
     # guess by libmagic
-    else:
-        mime = str(magic.from_buffer(bytes(s, "utf-8"), mime=True), "utf-8")
+    if isinstance(s, bytes):
+        mime = str(magic.from_buffer(s, mime=True), "utf-8")
         ext  = mimetypes.guess_extension(mime).rstrip(".")
         return ext
 
