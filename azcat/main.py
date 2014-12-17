@@ -37,6 +37,7 @@ def load_file (filepath):
 def main (args):
     # GNU global
     if args["t"] is not None:
+        args["with_pager"] = True
         try:
             output = check_output(["global", "-x", args["t"]]).decode("utf-8")
             if output == "":
