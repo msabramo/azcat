@@ -2,8 +2,8 @@
 azcat
 ******
 
-.. image:: https://drone.io/github.com/nuta/azcat/status.png
-    :alt: Build Status
+.. image:: https://travis-ci.org/nuta/azcat.svg?branch=master
+    :target: https://travis-ci.org/nuta/azcat
 
 .. image:: https://badge.fury.io/py/azcat.svg
     :target: http://badge.fury.io/py/azcat
