@@ -19,13 +19,13 @@ def load_file (filepath):
         else:
              en = chardet.detect(data[0:1024])["encoding"]
              if en is None:
-                 s = data # failed to detect encoding; treat as a binary
+                 s = data.decode("utf-8")
              else:
                  s = data.decode(chardet.detect(data[0:1024])["encoding"])
     except IOError as e:
         sys.exit("azcat: cannot open '%s': %s" % (filepath, str(e)))
     except UnicodeDecodeError:
-        s = data
+        s = data # failed to detect encoding; treat as a binary
 
     # confirm if file size is larger than 1MB
     if os.path.getsize(filepath) > 1024*1024:
@@ -62,5 +62,5 @@ def main (args):
         except IOError: # this will raised after the pager existed
             pass
     else:
-        out = sys.stdout.buffer
-        pretty_print(file, s, out, args["with_formatter"], ext=args.get("f"))
+        pretty_print(file, s, sys.stdout.buffer,
+                     args["with_formatter"], ext=args.get("f"))
