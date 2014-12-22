@@ -9,23 +9,19 @@ if sys.version_info[0] == 2:
 
 def load_file (filepath):
     try:
-       # detect & convert character encoding
+        # detect & convert character encoding
         with open(filepath, "rb") as f:
             data = f.read()
 
-        # is it seem a binary file?
-        if b"\x00" in data[0:1024]:
-             s = data
+        en = chardet.detect(data[0:1024])["encoding"]
+        if en is None:
+            s = data.decode("utf-8")
         else:
-             en = chardet.detect(data[0:1024])["encoding"]
-             if en is None:
-                 s = data.decode("utf-8")
-             else:
-                 s = data.decode(chardet.detect(data[0:1024])["encoding"])
+            s = data.decode(chardet.detect(data[0:1024])["encoding"])
     except IOError as e:
         sys.exit("azcat: cannot open '%s': %s" % (filepath, str(e)))
     except UnicodeDecodeError:
-        s = data # failed to detect encoding; treat as a binary
+        sys.exit("azcat: file seems a binary file.")
 
     # confirm if file size is larger than 1MB
     if os.path.getsize(filepath) > 1024*1024:

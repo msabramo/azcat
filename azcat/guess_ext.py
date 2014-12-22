@@ -1,6 +1,5 @@
 import os
 import mimetypes
-import magic
 
 def guess_ext_by_filename (filename):
     FILENAMES = {
@@ -39,11 +38,5 @@ def guess_ext_by_contents (s):
         for k,v in INTERPRETERS.items():
             if interpreter.startswith(k):
                 return v
-
-    # guess by libmagic
-    if isinstance(s, bytes):
-        mime = str(magic.from_buffer(s, mime=True), "utf-8")
-        ext  = mimetypes.guess_extension(mime).rstrip(".")
-        return ext
 
     return ""

@@ -19,7 +19,6 @@ Installation
 .. code-block:: bash
 
     $ pip3 install azcat # use Python3
-    $ brew install libmagic # on OS X
 
 =====
 Usage
