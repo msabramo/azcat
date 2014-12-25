@@ -8,7 +8,7 @@ azcat
 .. image:: https://badge.fury.io/py/azcat.svg
     :target: http://badge.fury.io/py/azcat
 
-azcat is a alternaive to ``cat(1)``; specialized for printing. It prints files with syntax
+azcat is an alternative to ``cat(1)``; specialized for printing. It prints files with syntax
 highlighting and formatting.
 
 .. image:: https://raw.githubusercontent.com/nuta/azcat/master/demo.gif
