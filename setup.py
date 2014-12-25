@@ -5,7 +5,7 @@ readme = open("README.rst").read()
 
 setup(
     name="azcat",
-    version="0.60",
+    version="1.00",
     description="A alternative to cat(1); specialized for printing files",
     long_description=readme,
     author="Seiya Nuta",
@@ -15,7 +15,7 @@ setup(
     scripts=["az"],
     install_requires=requires,
     classifiers = [
-        "Development Status :: 4 - Beta",
+        "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
         "License :: Public Domain",
         "Operating System :: POSIX",

@@ -1,0 +1,5 @@
+- change version in `setup.py` and `az`
+- `python3 setup.py sdist upload`
+- add a tag `vX.XX`
+- `git push`
+- `git push --tags`
